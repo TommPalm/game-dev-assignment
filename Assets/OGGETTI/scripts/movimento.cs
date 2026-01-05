@@ -8,8 +8,7 @@ public class movimento : MonoBehaviour
 
     void Start()
     {
-        vel = -0.08f; //dato che a muoversi è il labirinto intorno al personaggio
-                      //per dare l'illusione del movimento corretto i comandi vanno invertiti
+        vel = 0.08f; 
     }
 
     // Update is called once per frame
