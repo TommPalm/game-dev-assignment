@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -12,9 +13,10 @@ public class generaLab: MonoBehaviour
     /*creazione labirinto*/
     [SerializeField]
     private int l; //lato del labirinto, tutti quadrati
+
     private casella[,] griglia; //array per tenere le caselle
 
-    private void Start()
+    void Start()
     {
         griglia = new casella[l, l];
 
@@ -23,25 +25,64 @@ public class generaLab: MonoBehaviour
         {
             for (int y = 0; y < l; y++)
             { 
-                griglia[x, y] = Instantiate(cell, new Vector3(x*4, y*4, 0), Quaternion.identity);
+                griglia[x, y] = Instantiate(cell, new Vector3(x, y, 0), Quaternion.identity);
             }
         }
 
+        genera(null, griglia[0,0]);
 
     }
-
+    /*genera ricorsivamente il labirinto "scoprendo" le caselle*/
     private void genera(casella prec, casella att) 
     {
         att.Visita();
         eliminaMuro(prec, att);
+        casella pros;
+
+         //evita che si blocchi prima di aver visitato tutte le celle non visitate:
+        do  //in caso una cella non abbia confinanti non visitati torna alla cella precedente
+        {
+            pros = prossimaDaVisitare(att);
+
+            if (pros != null)
+            {
+                genera(att, pros);
+            }
+        } while (pros != null);
     }
 
     private casella prossimaDaVisitare(casella att)
     {
-        var i = Random.Range(0, 4);
-        List<casella> l = new List<casella>();
+        
+        List<casella> list = new List<casella>();
 
-        return l[i];
+
+        /*inseriamo le caselle confinanti non visitate*/
+        int x = (int) att.transform.position.x;
+        int y = (int) att.transform.position.y;
+        //esiste la casella a destra
+        if(x+1<l)
+        {
+            if(griglia[x+1,y].isVisitato()==false) list.Add(griglia[x + 1, y]);
+        }
+        //esiste la casella a sinistra
+        if (x - 1 >=0)
+        {
+            if(griglia[x - 1, y].isVisitato() == false) list.Add(griglia[x - 1, y]);
+        }
+        //esiste la casella sopra
+        if (y +1 < l)
+        {
+            if(griglia[x , 1+ y].isVisitato() == false) list.Add(griglia[x ,1+ y]);
+        }
+        //esiste la casella a destra
+        if (y - 1 >=0 && griglia[x,y-1].isVisitato() == false)
+        {
+            list.Add(griglia[x, y - 1]);
+        }
+        
+        int i = Random.Range(0, list.Count);//estrae a caso una delle caselle
+        return list[i];
     }
     
     //elimina i muri che confinano per liberare la strada
