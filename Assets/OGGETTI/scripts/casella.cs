@@ -12,8 +12,17 @@ public class casella: MonoBehaviour
     private GameObject mL; //muro left
     [SerializeField]
     private GameObject NV; //copertura per caselle non visitate
+    
+    private bool isVisited;
 
-    public bool isVisited { get; private set; }
+    //per testare il percorso del generatore
+    [SerializeField]
+    public int id;
+
+    public casella()
+    {
+        this.isVisited = false;
+    }
 
     public void Visita()
     {
