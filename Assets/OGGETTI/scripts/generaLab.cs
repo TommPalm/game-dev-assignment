@@ -13,6 +13,8 @@ public class generaLab: MonoBehaviour
     private GameObject personaggio;
     [SerializeField]
     private GameObject sfondo;
+    [SerializeField]
+    private GameObject obiettivo;
 
     private int id=0;
 
@@ -36,6 +38,7 @@ public class generaLab: MonoBehaviour
         }
         Instantiate(personaggio, new Vector3(0, 0, 0), Quaternion.identity);
         Instantiate(sfondo, new Vector3(0, 0, 0), Quaternion.identity);
+        Instantiate(obiettivo, new Vector3(l-1, l-1, 0), Quaternion.identity);
         scopri(griglia[0,0]);
 
     }

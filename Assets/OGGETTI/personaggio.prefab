@@ -17,7 +17,7 @@ GameObject:
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2424403785752825976
 Transform:
@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 3324828563234395906}
   - component: {fileID: 3778981453042643784}
   - component: {fileID: 2162153380191868750}
+  - component: {fileID: 7576172092675691806}
   m_Layer: 0
   m_Name: blub
   m_TagString: Untagged
@@ -219,7 +220,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -1608589311019197934, guid: 18dd844b602b2a6489e7c307ba00e9fc, type: 3}
+  m_Sprite: {fileID: 4454631428275665778, guid: 5346223c3a3218c46a0465bd5cbf8475, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -263,8 +264,20 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 1.21
+  m_Offset: {x: -0.07209763, y: 0.04119873}
+  m_Radius: 1.3026967
+--- !u!114 &7576172092675691806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6534889042172452653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01d7d731187e7784f8950883f6a218ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &8425997463389576523
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,8 +309,8 @@ Transform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3324828563234395906}
   - {fileID: 2424403785752825976}
+  - {fileID: 3324828563234395906}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &-4688946538340953679
