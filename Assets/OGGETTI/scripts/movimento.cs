@@ -14,13 +14,12 @@ public class movimento : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        /*gestione input movimento*/
         float inputX = Input.GetAxisRaw("Horizontal");
         mov.x = inputX * vel;
         float inputY = Input.GetAxisRaw("Vertical");
         mov.y = inputY * vel;
         transform.Translate(mov);
-
 
     }
 }
