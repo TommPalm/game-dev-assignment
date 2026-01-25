@@ -2,7 +2,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem.LowLevel;
 
-public class turnaround : MonoBehaviour
+public class Turnaround : MonoBehaviour
 {
     private float pi;
     private float x;

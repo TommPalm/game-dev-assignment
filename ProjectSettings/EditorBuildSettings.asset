@@ -6,8 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: "Assets/erano gi\xE0 qui/Scenes/SampleScene.unity"
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/MENU.unity
+    guid: ae3c750fe1b960c4587b67808e0b5cef
+  - enabled: 1
+    path: Assets/Scenes/EASY.unity
+    guid: 3f6736abc1faf37489528d4bdc475cd9
+  - enabled: 1
+    path: Assets/Scenes/MEDIUM.unity
+    guid: 6f6403425c1543a4bb15283ae64139a2
+  - enabled: 1
+    path: Assets/Scenes/HARD.unity
+    guid: a0c14fb722b894547aa95e5f825e6363
+  - enabled: 1
+    path: Assets/Scenes/REAL.unity
+    guid: 6f120c98b1577d74eb8b07c7db7243eb
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
