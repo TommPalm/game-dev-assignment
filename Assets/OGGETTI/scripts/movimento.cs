@@ -1,6 +1,7 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class movimento : MonoBehaviour
+public class Movimento : MonoBehaviour
 {
     public Rigidbody2D rb;
     public float vel;
@@ -22,4 +23,5 @@ public class movimento : MonoBehaviour
         transform.Translate(mov);
 
     }
+
 }
