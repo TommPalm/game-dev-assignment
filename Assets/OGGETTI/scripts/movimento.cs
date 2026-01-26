@@ -9,7 +9,7 @@ public class Movimento : MonoBehaviour
 
     void Start()
     {
-        vel = 0.018f; 
+        vel = 0.025f; 
     }
 
     // Update is called once per frame
