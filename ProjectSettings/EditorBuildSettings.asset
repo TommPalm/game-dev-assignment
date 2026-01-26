@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/REAL.unity
     guid: 6f120c98b1577d74eb8b07c7db7243eb
+  - enabled: 1
+    path: Assets/Scenes/VITTORIA.unity
+    guid: 3e33e87cd81d7144790e07a0931d9892
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

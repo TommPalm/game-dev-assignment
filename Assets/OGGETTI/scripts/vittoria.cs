@@ -13,6 +13,6 @@ public class vittoria : MonoBehaviour
     [ContextMenu("win")]
     public void win()
     {
-        SceneManager.LoadSceneAsync(0);
+        SceneManager.LoadSceneAsync(5);
     }
 }

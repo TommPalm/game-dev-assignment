@@ -3,7 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class menu : MonoBehaviour
 {
-   public void PlayEasy()
+
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
+    public void PlayEasy()
     {
         SceneManager.LoadSceneAsync(1);
     }
@@ -18,5 +24,10 @@ public class menu : MonoBehaviour
     public void PlayReal()
     {
         SceneManager.LoadSceneAsync(4);
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadSceneAsync(0);
     }
 }
