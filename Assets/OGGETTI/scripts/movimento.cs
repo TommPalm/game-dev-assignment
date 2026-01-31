@@ -3,49 +3,37 @@ using UnityEngine.SceneManagement;
 
 public class Movimento : MonoBehaviour
 {
-    public Rigidbody2D rb;
-    public float vel;
-    public Vector2 mov;
+    private input_mov blubInput;
+    private float vel = 0.025f;
+    private Vector2 mov;
+    private Rigidbody2D rb;
 
-    void Start()
+    private void Awake()
     {
-        vel = 0.025f; 
+        blubInput= new input_mov();
+        rb = GetComponent<Rigidbody2D>();
+    }
+    private void OnEnable()
+    {
+        blubInput.Enable();
+    }
+    private void OnDisable()
+    {
+        blubInput.Disable();
     }
 
     void Update()
     {
-
-        /*gestione input movimento pc
+        /*vecchio input pc
         float inputX = Input.GetAxisRaw("Horizontal");
         mov.x = inputX * vel;
         float inputY = Input.GetAxisRaw("Vertical");
         mov.y = inputY * vel;*/
-        transform.Translate(mov);
         
-        //rb.linearVelocity = mov;
-    }
+        mov = blubInput.blub.move.ReadValue<Vector2>();
+        transform.Translate(mov*vel);
 
-    /*funzioni gestione input movimento tramite tasti per mobile*/
-    public void UpButton()
-    {
-        mov.y = vel;
-    }
-    public void DownButton()
-    {
-        
-    }
-    public void LeftButton()
-    {
-       
-    }
-    public void RightButton()
-    {
-        
-    }
-    public void ferma()
-    {
-        mov.y = 0;
-        mov.x = 0;
+
     }
 
 }
