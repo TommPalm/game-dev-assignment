@@ -19,4 +19,5 @@ public class Timer : MonoBehaviour
         testo.text = string.Format("{0:00}:{1:00}", minuti, secondi);
 
     }
+
 }

@@ -21,19 +21,14 @@ public class Generatore: MonoBehaviour
     [SerializeField]
     private int l; //lato del labirinto, tutti quadrati
 
+
     private casella[,] griglia; //array per tenere le caselle
-    //private Rigidbody2D blubRB;
 
     void Start()
     {
-       // blubRB = blub.GetComponent<Rigidbody2D>();
         Genera();
     }
 
-    void Update()
-    {
-        
-    }
 
 
     
@@ -56,9 +51,8 @@ public class Generatore: MonoBehaviour
         Instantiate(obiettivo, new Vector3(l - 1, l - 1, 0), Quaternion.identity);
         /*crea i corridoi*/
         Scopri(griglia[0, 0]);
-        
 
-        
+
     }
 
     /*genera ricorsivamente il labirinto "scoprendo" le caselle*/
@@ -139,4 +133,6 @@ public class Generatore: MonoBehaviour
             att.eliminaUp(); return;
         }
     }
+
+   
 }

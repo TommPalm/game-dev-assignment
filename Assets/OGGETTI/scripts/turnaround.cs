@@ -1,13 +1,16 @@
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem.LowLevel;
 
 public class Turnaround : MonoBehaviour
 {
-    private float pi;
-    private float x,y;
-    private Vector2 mov;
+    //private float pi;
+    public float x,y;
+    private Vector2 mov,def;
     private input_mov blubInput;
+
+
     //transform.rotation = quaternion.RotateZ(math.PI/4); 45°
 
     private void Awake()
@@ -24,9 +27,12 @@ public class Turnaround : MonoBehaviour
     }
     void Start()
     {
-        pi = math.PI;
+       // pi = math.PI;
         this.x = 0;
         this.y = 0;
+        def.x = 0;
+        def.y = 1;
+
     }
    
     void Update()
@@ -36,16 +42,40 @@ public class Turnaround : MonoBehaviour
         x = inputX;
         float inputY = Input.GetAxisRaw("Vertical");
         y = inputY;*/
+
+        
         mov = blubInput.blub.move.ReadValue<Vector2>();
         this.x = mov.x;
         this.y = mov.y;
-        if(this.x >=0)
-            transform.rotation = quaternion.RotateZ( (Mathf.Asin(this.y)*Mathf.Deg2Rad)   );
-        if(this.x <0)
-            transform.rotation = quaternion.RotateZ(pi- (Mathf.Asin(this.y) * Mathf.Deg2Rad)  );
 
-
+        if (mov.y < 0 && mov.x > 0)
+        {
+           transform.rotation = quaternion.RotateZ(angoloTraVettori(mov, def) * (-1));
+        }
+        if (mov.y < 0 && mov.x < 0)
+        {
+           transform.rotation = quaternion.RotateZ(angoloTraVettori(mov, def));
+        }
+        if (mov.y > 0 && mov.x > 0)
+        {
+           transform.rotation = quaternion.RotateZ(angoloTraVettori(mov, def) * (-1));
+        }
+        if (mov.y > 0 && mov.x < 0)            {
+           transform.rotation = quaternion.RotateZ(angoloTraVettori(mov, def));
+        }
+        
 
     }
 
+    public float angoloTraVettori(Vector2 a, Vector2 b)
+    {
+        float v = (a.x * b.x) + (a.y * b.y);
+        return Mathf.Acos(v/ 
+                            ( Mathf.Sqrt
+                                (a.x*a.x + a.y*a.y) 
+                            * Mathf.Sqrt
+                                (b.x*b.x + b.y*b.y)
+                            )
+                         );
+    }
 }
